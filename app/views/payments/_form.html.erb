@@ -1,0 +1,91 @@
+
+<%= form_for(@payment) do |f| %>
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+      <% @payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.hidden_field :customer_id, :value => @current_user.id %>
+<%= f.hidden_field :date, :value => DateTime.now %>
+
+
+
+
+
+	<div class="row">
+		<div class="small-11 small-centered columns">
+<div class="panel">
+				<div class="row collapse">
+					<div class="two columns">
+						<center><h3>Booking Summary</h3></center>
+<div class="small-9 small-centered columns">
+<h4 class="subheader">Hey, <%= @user.name %><br/>						
+You have selected <b><%= @numtickets %></b> tickets<br/>
+Price per ticket: <b><%= @total/@numtickets%></b> Qatari Riyals<br/>
+Therefore, <b><%= @numtickets %></b> X <b><%= @total/@numtickets%></b> = <b><%= @total %></b> Qatari Riyals<br/><br/>
+<center><h3>Total Price:</h3> <fieldset> <div style="font-size: 18px;"><b><%= @total %></b> Qatari Riyals</h5></div></fieldset> <br/><br/></center></div>
+			       
+
+			          
+ </div>
+			 </div>
+		        </div>
+		 </div>			
+		</div>	
+
+			      
+
+			<div class="row">
+				<div class="small-11 small-centered columns">			
+			
+<div class="panel ">
+	
+	<div class="row">  
+	<div class="six columns">  
+
+	            <fieldset> 
+		<legend>Payment Information</legend>
+					<div class="large-12 columns">
+					<p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Billing Address</p>
+				<%= f.text_field :billing_address %>
+	</div>
+	<div class="row">
+					<div class="large-4 columns">
+						<p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Credit Card Number</p>
+				<%= f.text_field :creditcard_num %>
+	</div>
+	
+					<div class="large-4 columns">
+						<p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Credit Card Type</p>
+				<%= f.text_field :creditcard_type %>
+	</div>
+
+					<div class="large-4 columns">
+						<p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Three Digit Code</p>
+				<%= f.text_field :CVV %>
+	</div>
+<br/>	</div>
+<br/>	            </fieldset>  
+
+<br/>	</div>  
+<br/>	</div>
+
+<br/> </div>
+</div>
+
+<br/>
+<center>
+<%= link_to 'Cancel', root_path, :class=>"button success" %>
+<input type="Submit" value="Next" class="button"> 
+</center>
+<% end %>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+</div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

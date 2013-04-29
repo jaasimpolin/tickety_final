@@ -1,0 +1,89 @@
+
+<%= form_for(@payment) do |f| %>
+  <% if @payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+      <% @payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.hidden_field :customer_id, :value => @current_user.id %>
+<%= f.hidden_field :date, :value => DateTime.now %>
+
+
+
+<div class="row">
+	<div class="small-11 small-centered columns">
+	<div class="panel">
+<div class="field">
+	<h3><%= "Movie Details" %></h3><br />
+	    <h7><%= "Movie Title: " %> <br /></h7>
+	<h7 class="subheader"><%= @booking.show.movie.title %><br /> </h7>
+	    <h7><%= "Movie Summary: " %> <br /></h7>
+	<h7 class="subheader"><%= @booking.show.movie.summary %><br /></h7>
+	    <h7><%= "Movie genre: " %><br /> </h7>
+	<h7 class="subheader"><%= @booking.show.movie.genre %></h7><br />
+  <h7><%= "Location: " %><br /> </h7>
+<h7 class="subheader"><%= @booking.show.cinema.name %></h7><br />
+<h7><%= "Time: " %><br /> </h7>
+<h7 class="subheader"><%= @booking.show.show_time.strftime('%H:%M %p') %> on  <%= @booking.show.show_date %> <br /></h7><br />
+
+  </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+	<div class="row">
+		<div class="small-11 small-centered columns">
+<div class="panel callout radius">
+	
+	<div class="row">  
+	<div class="six columns">  
+
+	            <fieldset> 
+
+				<div class="large-12 columns">
+					<shamma>Total Price</shamma>
+				 <%= f.text_field :amount, :value => @numtickets, :readonly => true %>
+				      </div>
+				
+					<div class="large-12 columns">
+						<shamma>Billing Address</shamma>
+				<%= f.text_field :billing_address %>
+	</div>
+	
+					<div class="large-12 columns">
+						<shamma>Credit Card Number</shamma>
+				<%= f.text_field :creditcard_num %>
+	</div>
+	
+					<div class="large-12 columns">
+						<shamma>Credit Card Type</shamma>
+				<%= f.text_field :creditcard_type %>
+	</div>
+
+					<div class="large-12 columns">
+						<shamma>Three Digit Code</shamma>
+				<%= f.text_field :CVV %>
+	</div>
+	
+	            </fieldset>  
+
+	</div>  
+	</div>
+</div>
+ 
+
+<br/>
+<br/>
+<center>
+<input type="Submit" value="Submit" class="button"> 
+</center>
+<% end %>
+

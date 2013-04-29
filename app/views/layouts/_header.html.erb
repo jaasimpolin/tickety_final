@@ -1,0 +1,40 @@
+	<div class="nav">
+      	<ul class="inline-list">
+
+			<li><a href="/" class="fade anchorLink">Home</a></li>
+
+			
+			<li><%=link_to "Currently Showing", currentlyshowing_path %></li>
+			
+
+			<li><%=link_to "New Releases", newreleases_path %></li>
+
+			
+<% if current_user == true %>
+			<li><%=link_to "Customer Rewards", rewardsystem_path %></li>
+<% end %>
+			
+
+			<li><%= link_to "Website Policies", policies_path %></li>
+
+
+
+
+      		<li class="divider hide-for-small"></li>
+				 <% if current_user %>
+					<% if current_user.is_admin == true %>
+					<li><%=link_to "Admin Dashboard", admindashboard_path %></li>
+					<% end %>
+<li><%= link_to current_user.name, user_path(current_user.id) %></li>
+
+				                <li><%= link_to "Logout", :logout %> </li>
+
+
+					    <% else %>
+					     <li> <%= link_to "Register", new_user_path %> </li>
+					     <li> <%= link_to "Login", :login %></li>
+					    <% end %>
+				 </li>
+      	</ul>
+  		</div>
+

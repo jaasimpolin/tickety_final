@@ -1,0 +1,72 @@
+<%= form_for(@movie,:html => { :multipart => true }) do |f| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% @movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Title</label>
+    <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Duration</label>
+    <%= f.number_field :duration %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Summary</label>
+    <%= f.text_field :summary %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Genre</label>
+    <%= f.text_field :genre %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Actors</label>
+    <%= f.text_field :actors %>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="large-12 columns">
+	   <label>Trailer Link</label>
+  <%= f.text_field :link %>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="large-12 columns">
+	   <label>Movie Poster</label>
+  <%= f.file_field :movie_image %>
+    </div>
+  </div>
+
+<br/>
+<br/>
+<center>
+<%= f.submit 'Submit', :class => "button"  %>
+</center>
+<% end %>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+

@@ -1,0 +1,100 @@
+</br></br></br></br></br></br></br></br>
+<!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Tickety</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/foundation.css">
+
+  <script src="js/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+  <div class="row">
+    <div class="large-12 columns">
+
+
+      <!-- Header Content -->
+ 
+        <div class="row">
+ 
+			<div class="row">
+				<div class="large-9 small-centered columns">
+			<center>
+			<h1 class="title-prebooking">Profile Page</h1>
+			<hr>
+
+			</div></div>
+			</center>
+ 
+          <div class="large-9 small-centered columns">
+ 
+            <h3 class="show-for-small"><hr/></h3>
+ <center>
+            <div class="panel">
+              <h4 class="hide-for-small"><%= @user.name %>'s Profile<hr/></h4>
+				<p class="prebooking-intro">
+				  <b>Username</b><br/>
+				  <%= @user.username %>
+				</p>
+				
+			<p class="prebooking-intro">
+			  <b>Email</b><br/>
+			  <%= @user.email %>
+			</p>
+
+			<p class="prebooking-intro">
+			  <b>Reward Points</b><br/>
+			  <%= @user.reward_points %>
+			</p>
+<% if @user.billing_address != nil%>
+			<p class="prebooking-intro">
+			  <b>Billing Address</b><br/>
+			  <%= @user.billing_address %>
+			</p>
+<% end%>
+<% if @user.creditcard_num != nil%>
+			<p class="prebooking-intro">
+			  <b>Creditcard Number</b><br/>
+			  <%= @user.creditcard_num %>
+			</p>
+<% end%>
+<% if @user.creditcard_type != nil%>
+			<p class="prebooking-intro">
+			  <b>Creditcard Type</b><br/>
+			  <%= @user.creditcard_type %>
+			</p>
+<% end%>
+<% if @user.security_num != nil%>
+			<p class="prebooking-intro">
+			  <b>Security Number</b><br/>
+			  <%= @user.security_num %>
+			</p>
+<% end%>
+
+
+            </div>
+ 
+          </div>
+ 
+        </div>
+ </center>
+      <!-- End Header Content -->
+
+ 
+	<center>
+	<%= link_to 'Edit', edit_user_path(@user), :class => 'button' %>
+	</center>
+
+</div></div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</body>
+</html>

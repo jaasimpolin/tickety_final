@@ -1,0 +1,84 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+<div class="panel">
+		<fieldset>
+    <div class="row">
+      <div class="large-12 columns">
+
+       <p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Name</p>
+	    <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Email</p>
+	    <%= f.text_field :email %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Username</p>
+	    <%= f.text_field :username %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Password</p>
+	    <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <p class="prebooking-intro"><b style="color:red; font-size:15px;">* </b>Password Confirmation</p>
+	    <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <p class="prebooking-intro">Billing Address </p>
+    <%= f.text_field :billing_address %>
+      </div>
+    </div>
+
+ <div class="row">
+      <div class="large-4 columns">
+        <p class="prebooking-intro">Credit Card Number</p>
+        <%= f.number_field :creditcard_num %>
+      </div>
+      <div class="large-4 columns">
+        <p class="prebooking-intro">Credit Card Type</p>
+         <%= f.text_field :creditcard_type %>
+      </div>
+      <div class="large-4 columns">
+        <p class="prebooking-intro">Security Number</p>
+        <%= f.number_field :security_num %>
+      </div>
+    </div>
+	
+	</fieldset>
+
+<br/>
+<br/>
+</div></div>
+<center>
+<input type="Submit" value="Submit" class="button"> 
+</center>
+<% end %>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>

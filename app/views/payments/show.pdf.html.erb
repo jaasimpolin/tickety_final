@@ -1,0 +1,136 @@
+
+<head><title>Tickety</title></head>
+	
+<body>
+<% @thebooking.seats.each do |s| %>
+	<% @co = (@payment.id + s.id) * 376213  %>
+	<% @code = @co.to_s %>
+   <% @qr = RQRCode::QRCode.new(@code, :size => 1.3, :level => :l) %>
+<div class="row">		
+	<div class="goldenticket">
+
+		<span><sara><%= @show.movie.title %></sara></span>
+<hr>
+
+		<div class="row">
+		  <div class="large-6 columns">
+
+
+			<ul class="large-block-grid-2">
+			  <li>
+				<div class="theater">
+					 <sara>Theater:</sara><br />
+
+				  <h5><%= @show.theater.theater_number %></h5>
+
+					</div>
+				</li>
+			  <li>
+				<div class="cinema">
+					 <sara>Cinema:</sara><br />
+				  <h5><%= @show.cinema.name %></h5>
+				</div>
+
+				</li>
+			  <li>
+				<div class="showtime">
+					 <sara>Show Time:</sara><br />
+				  <h5><%= @show.show_time.strftime('%H:%M %p')  %></h5>
+				</div>
+				</li>
+			  <li>
+				<div class="showdate">
+				  <sara>Show Date:</sara><br />
+				 <h5> <%= @show.show_date %></h5>
+				</div>
+				</li>
+				<li>
+					<div class="seat">
+						 <sara>Seat Number:</sara><br />
+						
+					<h5>  <%= s.number %></h5>
+					</div>
+				</li>
+				<li>
+					<div class="price">
+					  <sara>Price:</sara><br />
+					<h5>  <%= @payment.bookings.last.price %></h5>
+					</div>
+				</li>
+
+				
+			</ul>
+			
+				  <h3>NON REFUNDABLE</h3><br />
+			</div>
+			
+			
+
+			
+			  <div class="large-6 columns">
+
+
+
+			<QR>
+			<style type="text/css">
+			 table {
+			  border-width: 0;
+			  border-style: none;
+			  border-color: #0000ff;
+			  border-collapse: collapse;
+			 }
+			 td {
+			   border-width: 0;
+			   border-style: none;
+			   border-color: #0000ff;
+			   border-collapse: collapse;
+			   padding: 0;
+			   margin: 0;
+			   width: 10px;
+			   height: 10px;
+			 }
+			 td.black { background-color: #000; }
+			 td.white { background-color: #fff; }
+			</style>
+
+			<table>
+			 <% @qr.modules.each_index do |x| -%>
+			   <tr>
+			   <% @qr.modules.each_index do |y| -%>
+			    <% if @qr.dark?(x,y) -%>
+			    <td class="black"/>
+			    <% else -%>
+			    <td class="white"/>
+			    <% end -%>
+			   <% end -%>
+			   </tr>
+			 <% end -%>
+			</table>
+			</QR>
+		</div>
+		</div>
+
+
+	
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<%end%>
+<center>
+<input type="button" onClick="window.print()" value="Print" class="button"/>
+<%= link_to 'Finish', root_path, :class => "button" %>
+</center>
+
+
+
+</body>

@@ -1,0 +1,45 @@
+<center>
+</br></br></br></br></br></br></br>
+<div class="row">
+	<div class="large-9 small-centered columns">
+<center>
+<h1 class="title-prebooking">Listing Movies</h1>
+<hr>
+
+</div></div>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Duration</th>
+    <th>Summary</th>
+    <th>Genre</th>
+    <th>Actors</th>
+    
+  </tr>
+
+<% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.title %></td>
+    <td><%= movie.duration %></td>
+    <td><%= movie.summary %></td>
+    <td><%= movie.genre %></td>
+    <td><%= movie.actors %></td>
+
+	<% if can? :manage, @movie %>
+    <td><%= link_to 'Show', movie %></td>
+    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+    <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if can? :manage, @movie %>
+<%= link_to 'New Movie', new_movie_path, :class => 'button' %>
+<% end %>
+</center>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>

@@ -1,0 +1,49 @@
+</br></br></br></br></br></br></br></br>
+<div class="row">
+	<div class="large-9 small-centered columns">
+<center>
+<h1 class="title-prebooking">Show Information</h1>
+<hr>
+
+</div></div>
+</center>
+<center>
+<div class="row">
+<div class="large-9 small-centered columns">
+	<div class="panel">
+<p id="notice"><%= notice %></p>
+
+<p class="prebooking-intro">
+  <b>Cinema:</b><br/>
+  <%= @show.cinema.name %>
+</p>
+
+<p class="prebooking-intro">
+  <b>Theater:</b><br/>
+  <%= @show.theater.theater_number %>
+</p>
+
+<p class="prebooking-intro">
+  <b>Show time:</b><br/>
+  <%= @show.show_time.strftime("%H:%M:%S") %>
+</p>
+
+<p class="prebooking-intro">
+  <b>Show date:</b><br/>
+  <%= @show.show_date %>
+</p>
+
+<p class="prebooking-intro">
+  <b>Show type:</b><br/>
+  <%= @show.show_type %>
+</p>
+<br/>
+</div>
+</div>
+<%= link_to "Back", {:controller => "bookings", :action => "prebooking", :mov_id => @show.movie.id}, :class => 'button success' %>
+<%= link_to "Book", {:controller => "bookings", :action => "new", :show_id => @show.id}, :class => 'button' %>
+</div>
+</center>
+</br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br>

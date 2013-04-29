@@ -1,0 +1,27 @@
+
+<%= form_tag user_sessions_path, :method => :post do %>
+<div class="row">
+  <div class="large-9 small-centered columns">
+	  <div class="panel">
+  <div class="field">
+     <p class="prebooking-intro"> Username </p><br />
+    <%= text_field_tag :username %>
+  </div>
+  <div class="field">
+    <p class="prebooking-intro">password </p><br />
+    <%= password_field_tag :password %>
+  </div>
+<div>
+	<p style="float:left"><%= link_to 'Forgot Password?', new_password_reset_path %></p>
+
+	<p style="float:right;"><%= link_to "Not a user?", new_user_path %></p>
+	</div>
+<br/>
+<br/>
+  </div>
+<center>
+<input type="Submit" value="Submit" class="button"> 
+</center>
+<% end %>
+  </div>  </div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>

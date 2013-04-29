@@ -1,0 +1,56 @@
+<center>
+ 
+
+ 
+
+ 
+
+	</br></br></br></br></br></br></br></br>
+
+		<div class="large-9 small-centered columns">
+	<center>
+	<h1 class="title-prebooking">Customer Reward Points</h1>
+
+	<hr>
+
+<h2>Hello <%= @user.name %>!   Your current points are:</h2><br/>
+<div class="button points"><%= @user.reward_points %></div>
+
+
+
+<h3> Check out the rewards you can purchase with your points: </h3>
+
+
+<% if @user.reward_points > 15%>
+<div class="panel">
+<table>
+  <tr>
+    <th>Reward Name</th>
+    <th>Reward's Worth</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rewards.each do |reward| %>
+  <tr>
+    <td><%= reward.reward_title %></td>
+    <td><%= reward.reward_points %></td>
+    <td><%= link_to 'Details', reward %></td>
+    <td><%= link_to "Redeem", {:controller=> :rewards, :action => :redeem, :id => reward.id, :remote => true } %>  </td>  
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% else %>
+<div class="panel">
+<h5> Seems like you don't have enough points for any rewards! </h5>
+</br>
+</div>
+<%end%>
+
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</center>

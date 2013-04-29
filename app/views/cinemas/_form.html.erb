@@ -1,0 +1,35 @@
+<%= form_for(@cinema) do |f| %>
+  <% if @cinema.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cinema.errors.count, "error") %> prohibited this cinema from being saved:</h2>
+
+      <ul>
+      <% @cinema.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="large-9 small-centered columns">
+      <p class="prebooking-intro">Name</p>
+	    <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-9 small-centered columns">
+      <p class="prebooking-intro">Location</p>
+	    <%= f.text_field :location %>
+    </div>
+  </div>
+
+<br/>
+<br/>
+<center>
+<input type="Submit" value="Submit" class="button"> 
+</center>
+<% end %>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
